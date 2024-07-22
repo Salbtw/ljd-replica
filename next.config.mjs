@@ -1,4 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import { resolve } from 'path';
 
-export default nextConfig;
+export default {
+  reactStrictMode: true,
+  pageExtensions: ['tsx', 'ts'],
+  webpack(config, { isServer }) {
+    config.resolve.modules.push(resolve('./src'));
+    return config;
+  },
+};
